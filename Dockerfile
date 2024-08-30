@@ -12,24 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM python:3.11.1-slim@sha256:33a1008485e1a2dc565be79ece483b240cbc4d6266d6144a57a5a9965ede9bbf as base
+FROM node:20.8.0-alpine@sha256:37750e51d61bef92165b2e29a77da4277ba0777258446b7a9c99511f119db096 as base
 
 FROM base as builder
 
-COPY requirements.txt .
+# Some packages (e.g. @google-cloud/profiler) require additional
+# deps for post-install scripts
+RUN apk add --update --no-cache \
+    python3 \
+    make \
+    g++
 
-RUN pip install --prefix="/install" -r requirements.txt
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install --only=production
 
 FROM base
 
-WORKDIR /loadgen
+WORKDIR /usr/src/app
 
-COPY --from=builder /install /usr/local
+COPY --from=builder /usr/src/app/node_modules ./node_modules
 
-# Add application code.
-COPY locustfile.py .
+COPY . .
 
-# enable gevent support in debugger
-ENV GEVENT_SUPPORT=True
+EXPOSE 50051
 
-ENTRYPOINT locust --host="http://${FRONTEND_ADDR}" --headless -u "${USERS:-10}" 2>&1
+ENTRYPOINT [ "node", "index.js" ]
