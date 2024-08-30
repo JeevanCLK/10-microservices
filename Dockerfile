@@ -12,32 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM golang:1.21.3-alpine@sha256:926f7f7e1ab8509b4e91d5ec6d5916ebb45155b0c8920291ba9f361d65385806 as builder
-RUN apk add --no-cache ca-certificates git
-RUN apk add build-base
-WORKDIR /src
+FROM python:3.11.1-slim@sha256:33a1008485e1a2dc565be79ece483b240cbc4d6266d6144a57a5a9965ede9bbf as base
 
-# restore dependencies
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
+FROM base as builder
 
-# Skaffold passes in debug-oriented compiler flags
-ARG SKAFFOLD_GO_GCFLAGS
-RUN go build -gcflags="${SKAFFOLD_GO_GCFLAGS}" -o /go/bin/frontend .
+COPY requirements.txt .
 
-FROM alpine:3.18.4@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c016293fc851978 as release
-RUN apk add --no-cache ca-certificates \
-    busybox-extras net-tools bind-tools
-WORKDIR /src
-COPY --from=builder /go/bin/frontend /src/server
-COPY ./templates ./templates
-COPY ./static ./static
+RUN pip install --prefix="/install" -r requirements.txt
 
-# Definition of this variable is used by 'skaffold debug' to identify a golang binary.
-# Default behavior - a failure prints a stack trace for the current goroutine.
-# See https://golang.org/pkg/runtime/
-ENV GOTRACEBACK=single
+FROM base
 
-EXPOSE 8080
-ENTRYPOINT ["/src/server"]
+WORKDIR /loadgen
+
+COPY --from=builder /install /usr/local
+
+# Add application code.
+COPY locustfile.py .
+
+# enable gevent support in debugger
+ENV GEVENT_SUPPORT=True
+
+ENTRYPOINT locust --host="http://${FRONTEND_ADDR}" --headless -u "${USERS:-10}" 2>&1
