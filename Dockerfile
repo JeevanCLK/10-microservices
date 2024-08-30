@@ -12,34 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM python:3.10.8-slim@sha256:abf96998af340975c26177b900c10cfb40716c985325303c063736f0f5cf3171 as base
+FROM golang:1.21.3-alpine@sha256:926f7f7e1ab8509b4e91d5ec6d5916ebb45155b0c8920291ba9f361d65385806 as builder
+RUN apk add --no-cache ca-certificates git
+RUN apk add build-base
+WORKDIR /src
 
-FROM base as builder
-
-RUN apt-get -qq update \
-    && apt-get install -y --no-install-recommends \
-        wget g++ \
-    && rm -rf /var/lib/apt/lists/*
-
-# get packages
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-FROM base
-# Enable unbuffered logging
-ENV PYTHONUNBUFFERED=1
-
-# get packages
-WORKDIR /recommendationservice
-
-# Grab packages from builder
-COPY --from=builder /usr/local/lib/python3.10/ /usr/local/lib/python3.10/
-
-# Add the application
+# restore dependencies
+COPY go.mod go.sum ./
+RUN go mod download
 COPY . .
 
-# set listen port
-ENV PORT "8080"
-EXPOSE 8080
+# Skaffold passes in debug-oriented compiler flags
+ARG SKAFFOLD_GO_GCFLAGS
+RUN go build -gcflags="${SKAFFOLD_GO_GCFLAGS}" -o /go/bin/shippingservice .
 
-ENTRYPOINT ["python", "recommendation_server.py"]
+FROM alpine:3.18.4@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c016293fc851978
+RUN apk add --no-cache ca-certificates
+
+WORKDIR /src
+COPY --from=builder /go/bin/shippingservice /src/shippingservice
+ENV APP_PORT=50051
+
+# Definition of this variable is used by 'skaffold debug' to identify a golang binary.
+# Default behavior - a failure prints a stack trace for the current goroutine.
+# See https://golang.org/pkg/runtime/
+ENV GOTRACEBACK=single
+
+EXPOSE 50051
+ENTRYPOINT ["/src/shippingservice"]
