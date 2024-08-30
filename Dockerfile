@@ -12,31 +12,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM node:20.8.0-alpine@sha256:37750e51d61bef92165b2e29a77da4277ba0777258446b7a9c99511f119db096 as base
+FROM python:3.10.8-slim@sha256:abf96998af340975c26177b900c10cfb40716c985325303c063736f0f5cf3171 as base
 
 FROM base as builder
 
-# Some packages (e.g. @google-cloud/profiler) require additional
-# deps for post-install scripts
-RUN apk add --update --no-cache \
-    python3 \
-    make \
-    g++
+RUN apt-get -qq update \
+    && apt-get install -y --no-install-recommends \
+        wget g++ \
+    && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install --only=production
+# get packages
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 FROM base
+# Enable unbuffered logging
+ENV PYTHONUNBUFFERED=1
+# Enable Profiler
+ENV ENABLE_PROFILER=1
 
-WORKDIR /usr/src/app
+WORKDIR /email_server
 
-COPY --from=builder /usr/src/app/node_modules ./node_modules
+# Grab packages from builder
+COPY --from=builder /usr/local/lib/python3.10/ /usr/local/lib/python3.10/
 
+# Add the application
 COPY . .
 
-EXPOSE 7000
-
-ENTRYPOINT [ "node", "server.js" ]
+EXPOSE 8080
+ENTRYPOINT [ "python", "email_server.py" ]
