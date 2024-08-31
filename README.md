@@ -1,0 +1,104 @@
+# Microservices based E-commerce Application Deployed on AWS EKS
+
+<div align="center">
+  <div style="position: relative;">
+    <img src="https://github.com/JeevanCLK/10-microservice/blob/master/devops.png" width="350" style="position: absolute; top: -500px; left: 50%; transform: translateX(-50%);" />
+    <img align="right" alt="Coding" height="250" width="500" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif" style="position: absolute; top: -500px; right: 100;" />
+  </div>
+</div>
+
+## Application Architecture
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/architecture-diagram.png">
+</div>
+
+## Description: 
+The web-based Java Microservices based E-commerce application consist of 10 microservices,the application has been divided into microservice architecture for the high availability of the individual components to provide users a wide experience across the application usage with high availability architecture. 
+## Tools Used: 
+AWS IAM, AWS Linux, Git and GitHub, Jenkins, Maven, SonarQube, Nexus, Docker, Docker Hub, Argo CD, AWS EKS
+<p align="left"> 
+<a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> 
+<a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> </a> 
+<a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> 
+<a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
+<a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/github/github-tile.svg" alt="github" width="40" height="40"/> </a> 
+ <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> 
+<a href="https://www.vectorlogo.zone/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-ar21.svg" alt="maven" width="40" height="40"/> </a> 
+<a href="https://spring.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="40" height="40"/> </a> 
+<a href="https://www.jenkins.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="jenkins" width="40" height="40"/> </a> 
+<a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> 
+<a href="https://www.vectorlogo.zone/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/argoprojio/argoprojio-ar21.svg" alt="argo" width="90" height="40"/> </a> 
+<a href="https://kubernetes.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="kubernetes" width="40" height="40"/> </a> 
+<a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/> </a> 
+<a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> 
+<a href="https://www.vectorlogo.zone/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-ar21.svg" alt="prometheus" width="90" height="40"/> </a>
+<a href="https://grafana.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="grafana" width="40" height="40"/> </a> 
+
+## Application Streamline: 
+Made some changes to the application using Git and committed the changes to the GitHub repository, the repo was configured with webhook applied against Jenkins URL to trigger a Jenkins job, whenever the changes were detected in the source code with the help of webhook  Jenkins start pulling the code form the GitHub repo to start the pipeline as part of continuous integration and continuous deployment ,the Jenkins declarative pipeline has  integrated with series of steps using the respective plugins for the steps to achieve CICD .
+## Series of Steps Involved  
+##### Step 1: Created AWS EC2 3 ubuntu machines for Jenkins, SonarQube and for Nexus repo 
+##### Step 2: Installed and configured Jenkins, SonarQube container and Nexus Container on their respective servers.
+##### Step 3: Installed and configured the docker on all three servers and created an Docker Hub account to store docker images.
+##### Step 4: Created an AWS EKS cluster with 2 nodes and configured the necessary policies
+##### Step 5: Configured Git and made some changes to the code and then pushed the code to the GitHub Repo
+##### Step 6: GitHub repo was configured with webhook of Jenkins URL to trigger a Jenkins job whenever changes detected in repo
+##### Step 7: Configured the Jenkins global tools configuration with all the necessary downloaded plugins for the streamline            
+##### Step 8: Configured the Jenkins credentials to securely store the GitHub token, User ID’s and Passwords of SonarQube server,    Nexus server and Docker Hub credentials  to use it in pipeline as Env Variables .
+##### Step 9: Write the Jenkins pipeline with series of steps as a part of CD/CD and checked into root directory of the source code
+##### Step 10: Write the docker files for the each microservices and checked them into their respective source code directory
+##### Step 11: Jenkins pipeline start building the project using the Jenkins file consist of below series of steps 
+
+Git Checkout->Maven Compile->Maven Test->Vulnerability scanning by Aqua Trivia->SonarQube code quality check->maven Build->Nexus repo (store the artifacts)->docker build and tag the image 
+Docker push the images to Docker Hub
+<div align="center"> <img height="500" width="1000" src="https://github.com/JeevanCLK/10-microservice/blob/master/jenkins%20pipeline.jpg"></div>
+
+##### Step 12: Installed and configured Argo CD on AWS EKS cluster for the continuous integration and continuous deployment
+##### Step 13: Created Git Hub repo 2 for storing the Deployment and service files 
+##### Step 14: Created docker secrets in the AWS EKS cluster to store the Docker Hub User ID and Password to pull the images from Hub.
+##### Step 15: Created Repo and added the project URL in ARGO CD and Created an application to start deploying the application to AWS EKS 
+
+### Jenkins Pipeline showcasing jobs triggered by jenkins for an microservices Multibranch pipeline 
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Jenkins%20dashboard1.png">
+<img height="500" width="1000" src="https://github.com/JeevanCLK/10-microservice/blob/master/Jenkins%20dashboard2.png">
+</div>
+
+### Built docker images and tagged with DockerHub username and pushed the imgaes to DockerHub
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Dokcer%20hub%20images.png">
+</div>
+
+### ArgoCD showcasing the deployment of Microservices in the pods using deployment.yml and service.ym files 
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argo%20CD%20dashboard1.png">
+</div>
+
+### ArgoCD showcasing the deployment of Microservices in the pods using deployment.yml and service.ym files 
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argo%20CD%20dashboard2.png">
+</div>
+
+### ArgoCD showcasing the Continousouly deployed the microservices wrt service.yml files 
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argocd%20Services.png">
+</div>
+
+### Application has been accessed with the help of DNS (Service:LoadBalancer )
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%201.png">
+</div>
+
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%202.png">
+</div>
+
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%203.png">
+</div>
+
+
+
+
+
+ 
