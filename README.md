@@ -9,7 +9,7 @@
 
 ## Application Streamline and Architecture
 <div align="center">
-<img src="https://github.com/JeevanCLK/check/blob/master/Assets/Devops%20CICD%20Pipeline_users%2Bname%20trans.drawio.svg">
+<img src="https://github.com/JeevanCLK/check/blob/master/Assets/Devops%20CIC%20Pipeline_users%2Btrans-embed.drawio.svg">
 </div>
 
 ## Pipeline stages
