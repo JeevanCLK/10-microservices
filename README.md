@@ -9,10 +9,16 @@
 
 ## Application Streamline and Architecture
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/check/blob/master/Assets/Devops%20CICD%20Pipeline_users.drawio.svg">
+<img src="https://github.com/JeevanCLK/check/blob/master/Assets/Devops%20CICD%20Pipeline_users%20trans.drawio.svg">
 </div>
-Git Checkout->Maven Compile->Maven Test->Vulnerability scanning by Aqua Trivia->SonarQube code quality check->maven Build->Nexus repo (store the artifacts)->docker build and tag the image 
-Docker push the images to Docker Hub
+
+## Pipeline stages
+
+#### CI-Cotinuous Integration using JENKINS
+#### CD-Coninuous Deployment using ArgoCD
+#### CM-Continuous Monitoring using Prometheus and Grafana
+
+REQUIREMENTS from clients--->JIRA ticket raised and assigned to dev team--->DEVELOPERS writes the code and test it in local--->GITHUB Dev team pushes the code to repo---JENKINS CONTINUOUS INTEGRATION---JENKINS git Checkout--->COMPILE CODE--->TEST cases running--->AQUA-TRIVY Vulnerability scan--->SONARQUBE code quality check--->NEXUS artifactory store--->DOCKER build and tag images and push images to docker hub--->JENKINS updates image versions in manifests file in GITHUB---ARGOCD CONTINUOUS DEPLOYMENT---ARGOCD pull the docker images from dockerhub using manifests--->KUBERENETES argocd deploys the application to K8's cluster--->CONTINUOUS MONITORING using Prometheus and Grafana
 
 ## Description: 
 The web-based Java Microservices based E-commerce application consist of 10 microservices,the application has been divided into microservice architecture for the high availability of the individual components to provide users a wide experience across the application usage with high availability architecture. 
