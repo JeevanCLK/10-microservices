@@ -1,4 +1,4 @@
-# Microservices based E-commerce Application Deployed on AWS EKS
+## An Ultimate Corporate AWS + Devops Jenkins Multibranch CICD Pipeline for Deploying an Microservices based E-commerce application to AWS EKS 
 
 <div align="center">
   <div style="position: relative;">
@@ -7,10 +7,12 @@
   </div>
 </div>
 
-## Application Architecture
+## Application Streamline and Architecture
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/architecture-diagram.png">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/check/blob/master/Assets/Devops%20CICD%20Pipeline%20trans.drawio.svg">
 </div>
+Git Checkout->Maven Compile->Maven Test->Vulnerability scanning by Aqua Trivia->SonarQube code quality check->maven Build->Nexus repo (store the artifacts)->docker build and tag the image 
+Docker push the images to Docker Hub
 
 ## Description: 
 The web-based Java Microservices based E-commerce application consist of 10 microservices,the application has been divided into microservice architecture for the high availability of the individual components to provide users a wide experience across the application usage with high availability architecture. 
@@ -48,11 +50,6 @@ Made some changes to the application using Git and committed the changes to the 
 ##### Step 9: Write the Jenkins pipeline with series of steps as a part of CD/CD and checked into root directory of the source code
 ##### Step 10: Write the docker files for the each microservices and checked them into their respective source code directory
 ##### Step 11: Jenkins pipeline start building the project using the Jenkins file consist of below series of steps 
-
-Git Checkout->Maven Compile->Maven Test->Vulnerability scanning by Aqua Trivia->SonarQube code quality check->maven Build->Nexus repo (store the artifacts)->docker build and tag the image 
-Docker push the images to Docker Hub
-<div align="center"> <img height="500" width="1000" src="https://github.com/JeevanCLK/10-microservice/blob/master/jenkins%20pipeline.jpg"></div>
-
 ##### Step 12: Installed and configured Argo CD on AWS EKS cluster for the continuous integration and continuous deployment
 ##### Step 13: Created Git Hub repo 2 for storing the Deployment and service files 
 ##### Step 14: Created docker secrets in the AWS EKS cluster to store the Docker Hub User ID and Password to pull the images from Hub.
