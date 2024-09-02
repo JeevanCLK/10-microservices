@@ -1,4 +1,4 @@
-## An Ultimate Corporate AWS + Devops Jenkins Multibranch CICD Pipeline for Deploying an Microservices based E-commerce application to AWS EKS 
+## An Ultimate Corporate AWS Devops Jenkins Multibranch CICD Pipeline for Deploying 10-Microservices based E-commerce application to AWS EKS 
 
 <div align="center">
   <div style="position: relative;">
