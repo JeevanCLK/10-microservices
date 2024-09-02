@@ -13,12 +13,22 @@
 # limitations under the License.
 
 # https://mcr.microsoft.com/product/dotnet/sdk
-FROM mcr.microsoft.com/dotnet/sdk:8.0.100-rc.1@sha256:c3d084185dee85aa204797dd228e3e720a14dbcfe4e785b40b9df189f79c7190 as builder
+FROM mcr.microsoft.com/dotnet/sdk:8.0.100-rc.1@sha256:c3d084185dee85aa204797dd228e3e720a14dbcfe4e785b40b9df189f79c7190 AS builder
+
 WORKDIR /app
+
+# If cartservice.csproj is in a subdirectory like "src", update the path:
+# COPY src/cartservice.csproj .
 COPY cartservice.csproj .
+
+# Restore dependencies for the project
 RUN dotnet restore cartservice.csproj \
     -r linux-musl-x64
+
+# Copy the entire source code to the container
 COPY . .
+
+# Publish the application as a self-contained, trimmed, single file binary
 RUN dotnet publish cartservice.csproj \
     -p:PublishSingleFile=true \
     -r linux-musl-x64 \
@@ -33,9 +43,19 @@ RUN dotnet publish cartservice.csproj \
 FROM mcr.microsoft.com/dotnet/runtime-deps:8.0.0-rc.1-alpine3.18-amd64@sha256:417dd8282260a8229cbe36521ef61a63c16a689141f517419b48d8f8b2f2e684
 
 WORKDIR /app
+
+# Copy the published output from the builder stage
 COPY --from=builder /cartservice .
+
+# Expose port 7070 for the service
 EXPOSE 7070
+
+# Set environment variables for the .NET runtime
 ENV DOTNET_EnableDiagnostics=0 \
     ASPNETCORE_HTTP_PORTS=7070
+
+# Run the application as a non-root user
 USER 1000
+
+# Start the application
 ENTRYPOINT ["/app/cartservice"]
