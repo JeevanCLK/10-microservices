@@ -9,7 +9,7 @@
 
 ## Application Streamline and Architecture
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/check/blob/master/Assets/Devops%20CICD%20Pipeline%20trans.drawio.svg">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/check/blob/master/Assets/Devops%20CICD%20Pipeline_users.drawio.svg">
 </div>
 Git Checkout->Maven Compile->Maven Test->Vulnerability scanning by Aqua Trivia->SonarQube code quality check->maven Build->Nexus repo (store the artifacts)->docker build and tag the image 
 Docker push the images to Docker Hub
@@ -38,6 +38,7 @@ AWS IAM, AWS Linux, Git and GitHub, Jenkins, Maven, SonarQube, Nexus, Docker, Do
 
 ## Application Streamline: 
 Made some changes to the application using Git and committed the changes to the GitHub repository, the repo was configured with webhook applied against Jenkins URL to trigger a Jenkins job, whenever the changes were detected in the source code with the help of webhook  Jenkins start pulling the code form the GitHub repo to start the pipeline as part of continuous integration and continuous deployment ,the Jenkins declarative pipeline has  integrated with series of steps using the respective plugins for the steps to achieve CICD .
+
 ## Series of Steps Involved  
 ##### Step 1: Created AWS EC2 3 ubuntu machines for Jenkins, SonarQube and for Nexus repo 
 ##### Step 2: Installed and configured Jenkins, SonarQube container and Nexus Container on their respective servers.
