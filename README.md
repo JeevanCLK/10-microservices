@@ -53,49 +53,71 @@ Made some changes to the application using Git and committed the changes to the 
 ##### Step 5: Configured Git and made some changes to the code and then pushed the code to the GitHub Repo
 ##### Step 6: GitHub repo was configured with webhook of Jenkins URL to trigger a Jenkins job whenever changes detected in repo
 ##### Step 7: Configured the Jenkins global tools configuration with all the necessary downloaded plugins for the streamline            
-##### Step 8: Configured the Jenkins credentials to securely store the GitHub token, User ID’s and Passwords of SonarQube server,    Nexus server and Docker Hub credentials  to use it in pipeline as Env Variables .
-##### Step 9: Write the Jenkins pipeline with series of steps as a part of CD/CD and checked into root directory of the source code
-##### Step 10: Write the docker files for the each microservices and checked them into their respective source code directory
-##### Step 11: Jenkins pipeline start building the project using the Jenkins file consist of below series of steps 
-##### Step 12: Installed and configured Argo CD on AWS EKS cluster for the continuous integration and continuous deployment
-##### Step 13: Created Git Hub repo 2 for storing the Deployment and service files 
+##### Step 8: Configured the Jenkins credentials to securely store the GitHub token, User ID’s and Passwords of SonarQube server,Nexus server and Docker Hub credentials  to use it in pipeline as Env Variables .
+##### Step 9: Write the Jenkins pipelines for all the microservices with series of steps as a part of CI which is checked into root directory of the each microservices source code
+##### Step 10: Write the docker files for the each microservices and checked them into their respective microservices source code directory
+##### Step 11: Jenkins pipeline start building the project using the Jenkins file consist of below series of steps
+##### Step 12: Jenkins to update image versions in manifests files present in the github repo
+##### Step 13: Installed and configured Argo CD on AWS EKS cluster for the continuous integration and continuous deployment
 ##### Step 14: Created docker secrets in the AWS EKS cluster to store the Docker Hub User ID and Password to pull the images from Hub.
-##### Step 15: Created Repo and added the project URL in ARGO CD and Created an application to start deploying the application to AWS EKS 
+##### Step 15: Created Repo and added the project URL in ARGO CD and Created an application to start deploying the application to AWS EKS
+##### Step 16: ArgoCD will start pulling the images from DockerHub using the manifest files based on the images pull policy set creteria and it wil deploy the application to the AWS EKS cluster,then configure the K8's service load balancer to expose the application to internet.
+
+#
 
 ### Jenkins Pipeline showcasing jobs triggered by jenkins for an microservices Multibranch pipeline 
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Jenkins%20dashboard1.png">
+</div>
+
+#
+
+<div align="center">
 <img height="500" width="1000" src="https://github.com/JeevanCLK/10-microservice/blob/master/Jenkins%20dashboard2.png">
 </div>
+
+#
 
 ### Built docker images and tagged with DockerHub username and pushed the imgaes to DockerHub
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Dokcer%20hub%20images.png">
 </div>
 
+#
+
 ### ArgoCD showcasing the deployment of Microservices in the pods using deployment.yml and service.ym files 
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argo%20CD%20dashboard1.png">
 </div>
+
+#
 
 ### ArgoCD showcasing the deployment of Microservices in the pods using deployment.yml and service.ym files 
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argo%20CD%20dashboard2.png">
 </div>
 
-### ArgoCD showcasing the Continousouly deployed the microservices wrt service.yml files 
+#
+
+### ArgoCD showcasing the Continousouly deployed microservices wrt service.yml files 
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argocd%20Services.png">
 </div>
+
+#
 
 ### Application has been accessed with the help of DNS (Service:LoadBalancer )
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%201.png">
 </div>
 
+#
+
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%202.png">
 </div>
+
+#
 
 <div align="center">
 <img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%203.png">
