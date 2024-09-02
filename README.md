@@ -65,62 +65,79 @@ Made some changes to the application using Git and committed the changes to the 
 
 #
 
-### Jenkins Pipeline showcasing jobs triggered by jenkins for an microservices Multibranch pipeline 
+### Jenkins Dashboard 
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Jenkins%20dashboard1.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Jenkins%20Dashboard.png">
+</div>
+
+#
+
+### Jenkins showcasing Multibranch Pipeline jobs for the Microservices Branches
+
+<div align="center">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Multibranch%20Jobs.png">
 </div>
 
 #
 
 <div align="center">
-<img height="500" width="1000" src="https://github.com/JeevanCLK/10-microservice/blob/master/Jenkins%20dashboard2.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Multibranch%20Jobss.png">
 </div>
 
 #
 
-### Built docker images and tagged with DockerHub username and pushed the imgaes to DockerHub
+
+### Jenkins showcasing Successfull Buil History
+
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Dokcer%20hub%20images.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/jenkins%20Build%20History.png".png">
 </div>
 
 #
 
-### ArgoCD showcasing the deployment of Microservices in the pods using deployment.yml and service.ym files 
+### Build docker images and tagged with DockerHub username and pushed the imgaes to DockerHub
+
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argo%20CD%20dashboard1.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Docker%20Hub.png">
 </div>
 
 #
 
-### ArgoCD showcasing the deployment of Microservices in the pods using deployment.yml and service.ym files 
+### ArgoCD showcasing the Deployment of Microservices into the pods using deployment.yml and service.ym files 
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argo%20CD%20dashboard2.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Argo%20CD%20dashboard1.png">
 </div>
 
 #
 
-### ArgoCD showcasing the Continousouly deployed microservices wrt service.yml files 
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Argocd%20Services.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Argo%20CD%20dashboard2.png">
+</div>
+
+#
+
+### ArgoCD showcasing the Continousouly Deployed microservices wrt service.yml files 
+<div align="center">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Argocd%20Services.png">
 </div>
 
 #
 
 ### Application has been accessed with the help of DNS (Service:LoadBalancer )
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%201.png">
+<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20web%20page%201.png">
 </div>
 
 #
 
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%202.png">
+<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20web%20page%202.png">
 </div>
 
 #
 
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservice/blob/master/Application%20web%20page%203.png">
+<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20web%20page%202.png">
 </div>
 
 
