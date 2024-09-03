@@ -1,4 +1,4 @@
-## An Ultimate Corporate AWS Devops Jenkins Multibranch CICD Pipeline for Deploying 10-Microservices based E-commerce application to AWS EKS: Jenkinks + ArgoCD + K8's
+## An Ultimate Corporate AWS Devops Jenkins Multibranch CICD Pipeline for Deploying 10-Microservices based E-commerce application to AWS EKS: CI-Jenkinks + CD-ArgoCD + K8's
 
 <div align="center">
   <div style="position: relative;">
