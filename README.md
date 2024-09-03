@@ -87,7 +87,7 @@ Made some changes to the application using Git and committed the changes to the 
 #
 
 
-### Jenkins showcasing Successfull Buil History
+### Jenkins showcasing Successfull Build History
 
 <div align="center">
 <img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/jenkins%20Build%20History.png".png">
@@ -103,7 +103,7 @@ Made some changes to the application using Git and committed the changes to the 
 
 #
 
-### ArgoCD showcasing the Deployment of Microservices into the pods using deployment.yml and service.ym files 
+### ArgoCD showcasing the Deployment of Microservices into pods using deployment.yml and service.yml files 
 <div align="center">
 <img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Argo%20CD%20dashboard1.png">
 </div>
