@@ -2,7 +2,7 @@
 
 <div align="center">
   <div style="position: relative;">
-    <img src="https://github.com/JeevanCLK/10-microservice/blob/master/devops.png" width="300" style="position: absolute; top: -500px; left: 50%; transform: translateX(-50%);" />
+    <img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/devops.png" width="300" style="position: absolute; top: -500px; left: 50%; transform: translateX(-50%);" />
     <img align="right" alt="Coding" height="200" width="400" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif" style="position: absolute; top: -500px; right: 100;" />
   </div>
 </div>
