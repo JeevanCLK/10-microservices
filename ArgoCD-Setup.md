@@ -69,5 +69,13 @@ Here are the steps to install ArgoCD and retrieve the admin password:
    ```bash
    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
    ```
+5. **Create a docker secrets in the same namespace where your aoplication has been deployed and include the dockehub username,password,email and namespace name in the below cmd(don't forgot to include your image pull secrets in deployment.yml files)**:
+
+    imagePullSecrets:
+    - - name: my-dockerhub-secret
+     
+   ```bash
+   kubectl create secret docker-registry my-dockerhub-secret \--docker-server=https://index.docker.io/v1/ \--docker-username=XYZ \--docker-password=yourpasswdhere \-- 
+   docker-email=xyz@gmail.com \--namespace=yourapplicationdeployednamespace name
 
 These commands will install ArgoCD into the specified namespace, set up the service as a LoadBalancer, and retrieve the admin password for you to access the ArgoCD UI.
