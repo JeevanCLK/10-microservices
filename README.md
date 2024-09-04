@@ -41,7 +41,7 @@ Find **Protocol Buffers Descriptions** at the [`./protos` directory](/protos).
 REQUIREMENTS from clients--->JIRA ticket raised and assigned to dev team--->DEVELOPERS writes the code and test it in local--->GITHUB Dev team pushes the code to repo---JENKINS CONTINUOUS INTEGRATION---JENKINS git Checkout--->COMPILE CODE--->TEST cases running--->AQUA-TRIVY Vulnerability scan--->SONARQUBE code quality check--->NEXUS artifactory store--->DOCKER build and tag images and push images to docker hub--->JENKINS updates image versions in manifests file in GITHUB---ARGOCD CONTINUOUS DEPLOYMENT---ARGOCD pull the docker images from dockerhub using manifests--->KUBERENETES argocd deploys the application to K8's cluster--->CONTINUOUS MONITORING using Prometheus and Grafana
 
 ## Description: 
-The web-based Java Microservices based E-commerce application consist of 10 microservices,the application has been divided into microservice architecture for the high availability of the individual components to provide users a wide experience across the application usage with high availability architecture. 
+The web-based Java Microservices based E-commerce application consist of 11 microservices,the application has been divided into microservice architecture for the high availability of the individual components to provide users a wide experience across the application usage with high availability architecture. 
 ## Tools Used: 
 AWS IAM, AWS Linux, Git and GitHub, Jenkins, Maven, SonarQube, Nexus, Docker, Docker Hub, Argo CD, AWS EKS
 <p align="left"> 
