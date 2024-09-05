@@ -2,9 +2,6 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,6 +28,11 @@ RUN apk add --no-cache ca-certificates
 
 WORKDIR /src
 COPY --from=builder /go/bin/shippingservice /src/shippingservice
+
+# Add gRPC health probe
+RUN wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.4.18/grpc_health_probe-linux-amd64 \
+    && chmod +x /bin/grpc_health_probe
+
 ENV APP_PORT=50051
 
 # Definition of this variable is used by 'skaffold debug' to identify a golang binary.
