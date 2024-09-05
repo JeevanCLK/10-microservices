@@ -27,6 +27,13 @@ ARG SKAFFOLD_GO_GCFLAGS
 RUN go build -gcflags="${SKAFFOLD_GO_GCFLAGS}" -o /productcatalogservice .
 
 FROM alpine:3.18.4@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c016293fc851978
+
+# Install grpc_health_probe
+RUN apk add --no-cache wget && \
+    wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.4.18/grpc_health_probe-linux-amd64 && \
+    chmod +x /bin/grpc_health_probe && \
+    apk del wget
+
 RUN apk add --no-cache ca-certificates
 
 WORKDIR /src
