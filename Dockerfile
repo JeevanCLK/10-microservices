@@ -22,6 +22,15 @@ RUN pip install --prefix="/install" -r requirements.txt
 
 FROM base
 
+# Download and install grpc_health_probe
+RUN apt-get update && \
+    apt-get install -y wget && \
+    wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.4.18/grpc_health_probe-linux-amd64 && \
+    chmod +x /bin/grpc_health_probe && \
+    apt-get remove -y wget && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /loadgen
 
 COPY --from=builder /install /usr/local
@@ -32,4 +41,4 @@ COPY locustfile.py .
 # enable gevent support in debugger
 ENV GEVENT_SUPPORT=True
 
-ENTRYPOINT locust --host="http://${FRONTEND_ADDR}" --headless -u "${USERS:-10}" 2>&1
+ENTRYPOINT ["locust", "--host=http://${FRONTEND_ADDR}", "--headless", "-u", "${USERS:-10}"]
