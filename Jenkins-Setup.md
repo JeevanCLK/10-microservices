@@ -69,7 +69,7 @@ https://awscli.amazonaws.com/AWSCLIV2.msi
 ```bash
 https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_windows_amd64.zip
 ```
-- Etract the downloaded zip and add the terraform path to environmental variables 
+- Extract the downloaded zip and add the terraform path to environmental variables 
 - Verify the installation using terraform --version
 - If you have vs code , you can download terraform extension
 
