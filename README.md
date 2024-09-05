@@ -85,27 +85,21 @@ Made some changes to the application using Git and committed the changes to the 
 
 #
 
-### Jenkins Dashboard 
+### Github Project Repo Showcasing 11-Microservices for Continuous Integration by Jenkins
+
 <div align="center">
-<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Jenkins%20Dashboard.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Github%20Microservices%20Repo.png">
 </div>
 
 #
 
-### Jenkins showcasing Multibranch Pipeline jobs for the Microservices Branches
+### Jenkins Dashboard : showcasing Multibranch Pipeline jobs for the Microservices Branches
 
 <div align="center">
-<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Multibranch%20Jobs.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Jenkins%20Multibranch%20pipeline%20Dashboard.png">
 </div>
 
 #
-
-<div align="center">
-<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Multibranch%20Jobss.png">
-</div>
-
-#
-
 
 ### Jenkins showcasing Successfull Build History
 
@@ -115,7 +109,7 @@ Made some changes to the application using Git and committed the changes to the 
 
 #
 
-### Build docker images and tagged with DockerHub username and pushed the imgaes to DockerHub
+### Built docker images and tagged with DockerHub username and pushed the imgaes to DockerHub
 
 <div align="center">
 <img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Docker%20Hub.png">
@@ -123,45 +117,91 @@ Made some changes to the application using Git and committed the changes to the 
 
 #
 
-### ArgoCD showcasing the Deployment of Microservices into pods using deployment.yml and service.yml files 
+### Github Project Repo Showcasing Service.yml and Deployment.yml files for Continuous Deployment by ArgoCD
+
 <div align="center">
-<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Argo%20CD%20dashboard1.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Github%20Repo%20Services%2BDeployment%20yml%20files.png">
+</div>
+
+#
+
+### ArgoCD Dashboard showcasing the Deployment of Microservices 
+
+<div align="center">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/AroCD%20Dashboard.png">
 </div>
 
 #
 
 <div align="center">
-<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Argo%20CD%20dashboard2.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/argocd%20application%20deployment%201.png">
 </div>
 
 #
 
-### ArgoCD showcasing the Continousouly Deployed microservices wrt service.yml files 
-<div align="center">
-<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Argocd%20Services.png">
-</div>
-
 #
 
-### Application has been accessed with the help of DNS (Service:LoadBalancer )
 <div align="center">
-<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20web%20page%201.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/argocd%20application%202deployment.png">
 </div>
 
 #
 
 <div align="center">
-<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20web%20page%202.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/argocd%20application%20deployment%203.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/argocd%20application%20deployment%204.png">
+</div>
+
+#
+
+### ArgoCD showcasing endpoints
+<div align="center">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/argocd%20endpoints.png">
+</div>
+
+#
+
+### ArgoCD showcasing pods distribution amoung 2 nodes
+<div align="center">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Pod%20Distribution%20to%20Nodes.png">
+</div>
+
+#
+
+### Kubernetes Cluster in AWS cloud shell
+
+<div align="center">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/K8's%20cluster%20in%20cloud%20shell.png">
+</div>
+
+#
+
+### Application has been accessed with the help of DNS (Frontend-Service:LoadBalancer )
+
+<div align="center">
+<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20Dashboard.png">
 </div>
 
 #
 
 <div align="center">
-<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20web%20page%202.png">
+<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/InCart%20Sunglasses.png">
 </div>
 
+#
 
+<div align="center">
+<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/K8's%20cluster%20in%20cloud%20shell.png">
+</div>
 
+#
 
+<div align="center">
+<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Shipping%20address.png">
+</div>
+
+<div align="center">
+  <h1>🛍👜👟👞👗👕👠That's It . Happy Shopping👢👜🛒🕶😎🛍👜🤝</h1>
+</div>
 
  
