@@ -180,7 +180,7 @@ Made some changes to the application using Git and committed the changes to the 
 
 
 <div align="center">
-<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Online%20Boutique.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Online%20Boutique.png">
 </div>
 
 #
@@ -189,22 +189,17 @@ Made some changes to the application using Git and committed the changes to the 
 <img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20Dashboard.png">
 </div>
 
+
 #
 
 <div align="center">
-<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/InCart%20Sunglasses.png">
+<img height="450" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/K8's%20cluster%20in%20cloud%20shell.png">
 </div>
 
 #
 
 <div align="center">
-<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/K8's%20cluster%20in%20cloud%20shell.png">
-</div>
-
-#
-
-<div align="center">
-<img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Shipping%20address.png">
+<img height="450" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Shipping%20address.png">
 </div>
 
 <div align="center">
