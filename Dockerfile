@@ -31,6 +31,11 @@ RUN npm install --only=production
 
 FROM base
 
+# Download and install grpc_health_probe
+RUN apk add --no-cache ca-certificates \
+    && wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.4.18/grpc_health_probe-linux-amd64 \
+    && chmod +x /bin/grpc_health_probe
+
 WORKDIR /usr/src/app
 
 COPY --from=builder /usr/src/app/node_modules ./node_modules
