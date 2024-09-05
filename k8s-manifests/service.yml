@@ -1,0 +1,153 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  labels:
+    app: frontend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart-service
+  labels:
+    app: cart-service
+spec:
+  selector:
+    app: cart-service
+  ports:
+  - protocol: TCP
+    port: 7070
+    targetPort: 7070
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-cart
+  labels:
+    app: redis-cart
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: redis-cart
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: email-service
+  labels:
+    app: email-service
+spec:
+  selector:
+    app: email-service
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout-service
+  labels:
+    app: checkout-service
+spec:
+  selector:
+    app: checkout-service
+  ports:
+  - protocol: TCP
+    port: 5050
+    targetPort: 5050
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recommendation-service
+  labels:
+    app: recommendation-service
+spec:
+  selector:
+    app: recommendation-service
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  labels:
+    app: payment-service
+spec:
+  selector:
+    app: payment-service
+  ports:
+  - protocol: TCP
+    port: 50051
+    targetPort: 50051
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: productcatalogue-service
+  labels:
+    app: productcatalogue-service
+spec:
+  selector:
+    app: productcatalogue-service
+  ports:
+  - protocol: TCP
+    port: 3550
+    targetPort: 3550
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: currency-service
+  labels:
+    app: currency-service
+spec:
+  selector:
+    app: currency-service
+  ports:
+  - protocol: TCP
+    port: 7000
+    targetPort: 7000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping-service
+  labels:
+    app: shipping-service
+spec:
+  selector:
+    app: shipping-service
+  ports:
+  - protocol: TCP
+    port: 50051
+    targetPort: 50051
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ad-service
+  labels:
+    app: ad-service
+spec:
+  selector:
+    app: ad-service
+  ports:
+  - protocol: TCP
+    port: 9555
+    targetPort: 9555
