@@ -178,6 +178,13 @@ Made some changes to the application using Git and committed the changes to the 
 
 ### Application has been accessed with the help of DNS (Frontend-Service:LoadBalancer )
 
+
+<div align="center">
+<img height="500" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Online%20Boutique.png">
+</div>
+
+#
+
 <div align="center">
 <img height="300" width="1000" style="margin-right: 20px" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Application%20Dashboard.png">
 </div>
