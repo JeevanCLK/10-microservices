@@ -79,3 +79,115 @@ Here are the steps to install ArgoCD and retrieve the admin password:
    docker-email=xyz@gmail.com \--namespace=yourapplicationdeployednamespace name
 
 These commands will install ArgoCD into the specified namespace, set up the service as a LoadBalancer, and retrieve the admin password for you to access the ArgoCD UI.
+
+6. **Below is the Terraform file to automate the AWS EKS infrastructure creation with 2 nodes and IAM roles and policy**:
+### Make sure to edit the below tags in the file
+- AWS EKS cluster name
+- Your VPC subnet ID's
+- Amazon machine image with required disk space
+- Node group name 
+
+```bash
+provider "aws" {
+  region = "ap-south-1"
+}
+
+# IAM Role for EKS Cluster
+resource "aws_iam_role" "eks_cluster_role" {
+  name = "eks-cluster-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "eks.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
+  role       = aws_iam_role.eks_cluster_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
+# IAM Role for EC2 Instances in Node Group
+resource "aws_iam_role" "eks_node_group_role" {
+  name = "myNodeGroupPolicy"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "eks_node_group_ec2_policy" {
+  role       = aws_iam_role.eks_node_group_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+}
+
+resource "aws_iam_role_policy_attachment" "eks_node_group_cni_policy" {
+  role       = aws_iam_role.eks_node_group_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+}
+
+resource "aws_iam_role_policy_attachment" "eks_node_group_ebs_policy" {
+  role       = aws_iam_role.eks_node_group_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "eks_node_group_worker_policy" {
+  role       = aws_iam_role.eks_node_group_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+}
+
+# EKS Cluster
+resource "aws_eks_cluster" "eks_cluster" {
+  name     = "jeevans-eks"
+  role_arn = aws_iam_role.eks_cluster_role.arn
+
+  vpc_config {
+    subnet_ids = ["subnet-02feeba85268f0b7d", "subnet-0ce9251c1c91bdf3d"]
+  }
+
+  depends_on = [aws_iam_role_policy_attachment.eks_cluster_policy]
+}
+
+# EKS Node Group
+resource "aws_eks_node_group" "node_group" {
+  cluster_name    = aws_eks_cluster.eks_cluster.name
+  node_group_name = "mynodegroups"
+  node_role_arn   = aws_iam_role.eks_node_group_role.arn
+  subnet_ids      = ["subnet-02feeba85268f0b7d", "subnet-0ce9251c1c91bdf3d"]
+
+  ami_type        = "AL2_x86_64"    # Amazon Linux 2 AMI type
+  instance_types  = ["t3.medium"]   # Instance type with 2 vCPUs, 4 GiB memory
+
+  disk_size       = 20  # Disk size of 20 GiB
+
+  scaling_config {
+    desired_size = 2
+    max_size     = 2
+    min_size     = 2
+  }
+
+  depends_on = [
+    aws_iam_role_policy_attachment.eks_node_group_ec2_policy,
+    aws_iam_role_policy_attachment.eks_node_group_cni_policy,
+    aws_iam_role_policy_attachment.eks_node_group_ebs_policy,
+    aws_iam_role_policy_attachment.eks_node_group_worker_policy
+  ]
+}
+
