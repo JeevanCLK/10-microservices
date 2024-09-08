@@ -1,4 +1,9 @@
-## An Ultimate Corporate AWS Devops Jenkins Multibranch CICD Pipeline for Deploying 11-Microservices based E-commerce application to AWS EKS: CI-Jenkinks + CD-ArgoCD + K8's
+<div align="center">
+  <h2>E-Commerce Cloud Hosted Webapp</h2>
+</div>
+
+
+## An Ultimate Corporate AWS Devops Jenkins Multibranch CI Pipeline with CD pipeline using GitOps Controller ArgoCD for Deploying 11-Microservices based E-commerce application to AWS EKS : CI-Jenkinks + CD-ArgoCD => CICD - K8's
 
 <div align="center">
   <div style="position: relative;">
@@ -16,6 +21,18 @@
 
 ![Continuous Integration](https://github.com/GoogleCloudPlatform/microservices-demo/workflows/Continuous%20Integration%20-%20Main/Release/badge.svg)
 Find **Protocol Buffers Descriptions** at the [`./protos` directory](/protos).
+
+**Online Boutique** is a cloud-first microservices demo application.
+Online Boutique consists of an 11-tier microservices application. The application is a
+web-based e-commerce app where users can browse items,
+add them to the cart, and purchase them.
+
+Google uses this application to demonstrate the use of technologies like
+Kubernetes, GKE, Istio, Stackdriver, and gRPC. This application
+works on any Kubernetes cluster, like Google
+Kubernetes Engine (GKE). It’s **easy to deploy with little to no configuration**.
+
+If you’re using this demo, please **★Star** this repository to show your interest!
 
 | Service                                              | Language      | Description                                                                                                                       |
 | ---------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
