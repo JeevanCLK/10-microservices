@@ -8,7 +8,7 @@
 <div align="center">
   <div style="position: relative;">
     <img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/devops.png" width="350" style="position: absolute; top: -500px; left: 50%; transform: translateX(-50%);" />
-    <img height="200" width="400" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Circle%20devops.png" style="position: absolute; top: -500px; right: 100;" />
+    <img height="200" width="400" src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Systems.png" style="position: absolute; top: -500px; right: 100;" />
   </div>
 </div>
 
