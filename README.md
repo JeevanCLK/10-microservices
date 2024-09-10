@@ -36,17 +36,17 @@ If you’re using this demo, please **★Star** this repository to show your int
 
 | Service                                              | Language      | Description                                                                                                                       |
 | ---------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [frontend](https://github.com/JeevanCLK/10-microservices/tree/frontend)                           | Go            | Exposes an HTTP server to serve the website. Does not require signup/login and generates session IDs for all users automatically. |
+| [frontend](https://github.com/JeevanCLK/10-microservices/tree/frontendservice)                           | Go            | Exposes an HTTP server to serve the website. Does not require signup/login and generates session IDs for all users automatically. |
 | [cartservice](https://github.com/JeevanCLK/10-microservices/tree/cartservice)                     | C#            | Stores the items in the user's shopping cart in Redis and retrieves it.                                                           |
-| [productcatalogservice](https://github.com/JeevanCLK/10-microservices/tree/productcatalogservice) | Go            | Provides the list of products from a JSON file and ability to search products and get individual products.                        |
+| [productcatalogservice](https://github.com/JeevanCLK/10-microservices/tree/productcatalogueservice) | Go            | Provides the list of products from a JSON file and ability to search products and get individual products.                        |
 | [currencyservice](https://github.com/JeevanCLK/10-microservices/tree/currencyservice)             | Node.js       | Converts one money amount to another currency. Uses real values fetched from European Central Bank. It's the highest QPS service. |
 | [paymentservice](https://github.com/JeevanCLK/10-microservices/tree/paymentservice)               | Node.js       | Charges the given credit card info (mock) with the given amount and returns a transaction ID.                                     |
 | [shippingservice](https://github.com/JeevanCLK/10-microservices/tree/shippingservice)             | Go            | Gives shipping cost estimates based on the shopping cart. Ships items to the given address (mock)                                 |
 | [emailservice](https://github.com/JeevanCLK/10-microservices/tree/emailservice)                   | Python        | Sends users an order confirmation email (mock).                                                                                   |
 | [checkoutservice](https://github.com/JeevanCLK/10-microservices/tree/checkoutservice)             | Go            | Retrieves user cart, prepares order and orchestrates the payment, shipping and the email notification.                            |
-| [recommendationservice](https://github.com/JeevanCLK/10-microservices/tree/recommendationservice) | Python        | Recommends other products based on what's given in the cart.                                                                      |
+| [recommendationservice](https://github.com/JeevanCLK/10-microservices/tree/recomandationservice) | Python        | Recommends other products based on what's given in the cart.                                                                      |
 | [adservice](https://github.com/JeevanCLK/10-microservices/tree/adservice/src)                         | Java          | Provides text ads based on given context words.                                                                                   |
-| [loadgenerator](https://github.com/JeevanCLK/10-microservices/tree/loadgenerator)                 | Python/Locust | Continuously sends requests imitating realistic user shopping flows to the frontend.                                              |
+| [loadgenerator](https://github.com/JeevanCLK/10-microservices/tree/loadgeneratorservice)                 | Python/Locust | Continuously sends requests imitating realistic user shopping flows to the frontend.                                              |
 
 
 ## Pipeline stages
