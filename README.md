@@ -130,7 +130,7 @@ Made some changes to the application using Git and committed the changes to the 
 ### Built docker images and tagged with DockerHub username and pushed the imgaes to DockerHub
 
 <div align="center">
-<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/Docker%20Hub.png">
+<img src="https://github.com/JeevanCLK/10-microservices/blob/master/Assets/DockerHub.png">
 </div>
 
 #
